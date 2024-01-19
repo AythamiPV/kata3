@@ -1,19 +1,22 @@
-package org.example;
+package es.ulpgc.kata3;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Intro with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+            MainFrame mainFrame=new MainFrame();
+            mainFrame.histogramDisplay().show(histogram());
+            mainFrame.setVisible(true);
+    }
+        private static Histogram histogram(){
+            return new Histogram() {
+                @Override
+                public int bins() {
+                    return 5;
+                }
 
-        // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Mayús+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+                @Override
+                public double[] values() {
+                    return new double[]{1,2,1,3,4,3,2,1,5,4,3,7,4,1};
+                }
+            };
     }
 }
